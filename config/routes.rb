@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'shops/index'
   mount Rswag::Ui::Engine => '/api/v1/docs'
   mount Rswag::Api::Engine => '/api-docs'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -21,7 +22,11 @@ Rails.application.routes.draw do
     namespace :admin do
       get '/users' => 'dashboard#index'
     end
+    resources :states          
+    resources :cities
+    resources :shops
   end
+
   namespace :api do
     namespace :v1 do
       concerns :api_base
@@ -41,3 +46,4 @@ Rails.application.routes.draw do
 
   match '*unmatched_route', :to => 'api/v1/errors#routing', via: [:all]
 end
+

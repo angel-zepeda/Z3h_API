@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_15_010219) do
+ActiveRecord::Schema.define(version: 2019_02_16_042947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
+    t.bigint "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
@@ -31,6 +33,26 @@ ActiveRecord::Schema.define(version: 2019_02_15_010219) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.integer "number"
+    t.string "bussiness_name"
+    t.string "rfc"
+    t.integer "cp"
+    t.string "address"
+    t.string "telefone"
+    t.string "code"
+    t.bigint "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_shops_on_city_id"
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +70,6 @@ ActiveRecord::Schema.define(version: 2019_02_15_010219) do
     t.index ["email"], name: "index_users_on_email"
   end
 
+  add_foreign_key "cities", "states"
+  add_foreign_key "shops", "cities"
 end

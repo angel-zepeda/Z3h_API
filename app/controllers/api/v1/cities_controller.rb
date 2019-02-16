@@ -1,6 +1,8 @@
 class Api::V1::CitiesController < ApplicationController
-  def index
-    @cities = City.all.order("name ASC")
-    render json: @cities
-  end
+
+	def index 
+		@cities = City.order(name: 'ASC').all
+		render json: @cities
+	end 
+
 end
