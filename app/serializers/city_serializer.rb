@@ -1,4 +1,4 @@
-class V1::CitySerializer < ActiveModel::Serializer
+class CitySerializer < ActiveModel::Serializer
 	attributes :id, :name
 	belongs_to :state
 	has_many :shops

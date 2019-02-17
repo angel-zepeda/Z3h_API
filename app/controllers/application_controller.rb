@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  before_action :set_namespace
+  # before_action :set_namespace
   include ExceptionHandler
   include Knock::Authenticable
   include CancanWarning
@@ -17,9 +17,9 @@ class ApplicationController < ActionController::API
 
   private
 
-  def set_namespace
-    self.namespace_for_serializer = ::V1
-  end
+  # def set_namespace
+  #   self.namespace_for_serializer = ::V1
+  # end
 
   def unauthorized_entity(_)
       render json: { status: 401, msg: "Unauthorized Token required" }
