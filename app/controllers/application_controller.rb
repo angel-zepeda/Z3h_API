@@ -4,10 +4,10 @@ class ApplicationController < ActionController::API
   include Knock::Authenticable
   include CancanWarning
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
-  
+
   # excepcion de ruta no encontrada
   def not_found(exception)
-      render json: { status: "404", "#{exception.message}": "page not found"}
+    render json: { status: "404", "#{exception.message}": "page not found"}
   end
 
   # excepcion de parametro requerido
@@ -16,12 +16,10 @@ class ApplicationController < ActionController::API
   end
 
   private
-
   # def set_namespace
   #   self.namespace_for_serializer = ::V1
-  # end
-
+  # end 
   def unauthorized_entity(_)
-      render json: { status: 401, msg: "Unauthorized Token required" }
+    render json: { status: 401, msg: "Unauthorized Token required" }
   end
 end

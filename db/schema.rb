@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_16_042947) do
+ActiveRecord::Schema.define(version: 2019_02_20_043406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "aspects", force: :cascade do |t|
+    t.string "name"
+    t.bigint "sub_area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sub_area_id"], name: "index_aspects_on_sub_area_id"
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -33,6 +47,20 @@ ActiveRecord::Schema.define(version: 2019_02_16_042947) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer "score"
+    t.text "comment"
+    t.bigint "user_id"
+    t.bigint "shop_id"
+    t.bigint "aspect_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "signature"
+    t.index ["aspect_id"], name: "index_reports_on_aspect_id"
+    t.index ["shop_id"], name: "index_reports_on_shop_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -55,6 +83,14 @@ ActiveRecord::Schema.define(version: 2019_02_16_042947) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sub_areas", force: :cascade do |t|
+    t.string "name"
+    t.bigint "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_sub_areas_on_area_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "email", null: false
@@ -70,6 +106,11 @@ ActiveRecord::Schema.define(version: 2019_02_16_042947) do
     t.index ["email"], name: "index_users_on_email"
   end
 
+  add_foreign_key "aspects", "sub_areas"
   add_foreign_key "cities", "states"
+  add_foreign_key "reports", "aspects"
+  add_foreign_key "reports", "shops"
+  add_foreign_key "reports", "users"
   add_foreign_key "shops", "cities"
+  add_foreign_key "sub_areas", "areas"
 end

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  has_many :reports
   #include friendly_id
   extend FriendlyId
   friendly_id :username, use: :slugged

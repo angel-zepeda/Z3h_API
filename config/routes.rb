@@ -1,9 +1,6 @@
-Rails.application.routes.draw do
-
-  get 'shops/index'
+Rails.application.routes.draw do  
   mount Rswag::Ui::Engine => '/api/v1/docs'
   mount Rswag::Api::Engine => '/api-docs'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   concern :api_base do
     get '/cities' => 'cities#index'
     get '/index' => 'home#index'
@@ -22,28 +19,25 @@ Rails.application.routes.draw do
     namespace :admin do
       get '/users' => 'dashboard#index'
     end
-    resources :states          
-    resources :cities
-    resources :shops
+    get 'states/index'
+    get 'cities/index'
+    get 'shops/index'
+    get 'areas/index'
+    get 'sub_areas/index'
+    get 'reports/index'
+    post 'reports/create'
+    resources :sub_areas do
+      resources :aspects
+    end    
   end
-
   namespace :api do
     namespace :v1 do
       concerns :api_base
       match '*unmatched_route', :to => 'errors#routing', via: [:all]
     end
   end
-#  versionamiento posible version 2 (ejemplo serializers y ruta extra) 
-#  https://chriskottom.com/blog/2017/04/versioning-a-rails-api/
-#  namespace :api do
-#    namespace :v2 do
-#      concerns :api_base
-#      get '/test' => 'home#test'
-#    end
-#  end
-    
   root :to => redirect('/api/v1/docs')
-
   match '*unmatched_route', :to => 'api/v1/errors#routing', via: [:all]
 end
+
 

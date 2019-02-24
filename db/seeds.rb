@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # User.create(username: "admin_api", email: "admin@domain.com", password: "admin123",password_confirmation: "admin123", role: 0)
-
+#
 # State.create(name: "Aguascalientes")
 # State.create(name: "Baja California,")
 # State.create(name: "Baja California Sur")
@@ -72,8 +72,5 @@
 # City.create(name: "Mérida", state_id: 30)
 # City.create(name: "Zacatecas", state_id: 31)
 
-# AGREGAR OTRA CIUDAD A UN ESTADO
-	# City.create(name: "Acapulco", state_id: 11)
 # Shop.create(number: 137, business_name: "ZACAPUL, S.A. DE C.V.", rfc: "ZAC-840129-RI0", cp: 39300, address:"JUAN RAMÓN ESCUDERO # 15 ZONA CENTRO", telefone: 7444834156, code: "CH-9591", city_id: 32)
-
 
