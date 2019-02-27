@@ -22,13 +22,10 @@ Rails.application.routes.draw do
     get 'states/index'
     get 'cities/index'
     get 'shops/index'
+    post 'shops/search'
     get 'areas/index'
     get 'sub_areas/index'
-    get 'reports/index'
-    post 'reports/create'
-    resources :sub_areas do
-      resources :aspects
-    end    
+    resources :sub_areas  
   end
   namespace :api do
     namespace :v1 do

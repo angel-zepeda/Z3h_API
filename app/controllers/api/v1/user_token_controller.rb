@@ -13,6 +13,7 @@ class Api::V1::UserTokenController < Knock::AuthTokenController
         jwt: auth_token.token,
         user_id: @user.id,
         username: @user.username,
+        role: @user.role,
         status: 200
       }
   end

@@ -1,4 +1,4 @@
 class ShopSerializer < ActiveModel::Serializer
-  attributes :id, :number, :bussiness_name, :rfc, :cp, :address, :telefone, :code
-  belongs_to :city	
+  attributes :id, :plaza, :shop_number, :name, :address, :suburb, :location, :cp
+  belongs_to :state	
 end

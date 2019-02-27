@@ -1,7 +1,7 @@
 class Api::V1::Admin::DashboardController < ApplicationController
-  include CancanWarning
-  authorize_resource class: false
-  before_action :authenticate_user
+  # include CancanWarning
+  # authorize_resource class: false
+  # before_action :authenticate_user
 
   def index
     #TODO: front-end button to next params[per_page]...

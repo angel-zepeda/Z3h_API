@@ -6,38 +6,47 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # User.create(username: "admin_api", email: "admin@domain.com", password: "admin123",password_confirmation: "admin123", role: 0)
-#
-# State.create(name: "Aguascalientes")
-# State.create(name: "Baja California,")
-# State.create(name: "Baja California Sur")
-# State.create(name: "Campeche")
-# State.create(name: "Chihuahua")
-# State.create(name: "Chiapas")
-# State.create(name: "Coahuila")
-# State.create(name: "Colima")
-# State.create(name: "Durango")
-# State.create(name: "Guanajuato")
-# State.create(name: "Guerrero")
-# State.create(name: "Hidalgo")
-# State.create(name: "Jalisco")
-# State.create(name: "México")
-# State.create(name: "Michoacán")
-# State.create(name: "Morelos")
-# State.create(name: "Nayarit")
-# State.create(name: "Nuevo León")
-# State.create(name: "Oaxaca")
-# State.create(name: "Puebla")
-# State.create(name: "Querétaro")
-# State.create(name: "Quintana Roo")
-# State.create(name: "San Luis Potosí")
-# State.create(name: "Sinaloa")
-# State.create(name: "Sonora")
-# State.create(name: "Tabasco")
-# State.create(name: "Tamaulipas")
-# State.create(name: "Tlaxcala")
-# State.create(name: "Veracruz")
-# State.create(name: "Yucatán")
-# State.create(name: "Zacatecas")
+# User.create(username: "Jesus Oliveros", email: "olijeso@yahoo.com.mx", password: "olijeso", password_confirmation: "olijeso", role: 0)
+# User.create(username: "Pedro Aguilar", email: "aguilar285@hotmail.com", password: "aguilar285", password_confirmation: "aguilar285", role: 1)
+# User.create(username: "Raul Padilla Campos", email: "raulpcampos@yahoo.com.mx", password: "raulpcampos", password_confirmation: "raulpcampos", role: 1)
+# User.create(username: "Jose Luis Hernandez", email: "luishp1@gmail.com", password: "luishp1", password_confirmation: "luishp1", role: 1)
+# User.create(username: "Francisco Garcia", email: "org3_fgz@yahoo.com.mx", password: "org3_fgz", password_confirmation: "org3_fgz", role: 1)
+# User.create(username: "Luis Gerardo", email: "ochoabayonalg@yahoo.com.mx", password: "ochoabayonalg", password_confirmation: "ochoabayonalg", role: 1)
+# User.create(username: "Jorge Mora", email: "moradelatorre@gmail.com", password: "moradelatorre", password_confirmation: "moradelatorre", role: 1)
+# User.create(username: "Ricardo", email: "riverdet@yahoo.com.mx", password: "riverdet", password_confirmation: "riverdet", role: 1)
+# Shop.create(plaza: "TAMAZUNCHALE", shop_number: 51, name: "TAMAZUNZAPA", address: "AV.HIDALGO #504", suburb: "CENTRO", location: "TAMAZUNCHALE", state_id: 23, cp: 79960)
+
+# State.create(name: "Aguascalientes") 1
+# State.create(name: "Baja California,") 2
+# State.create(name: "Baja California Sur") 3
+# State.create(name: "Campeche") 4
+# State.create(name: "Chihuahua") 5 
+# State.create(name: "Chiapas") 6
+# State.create(name: "Coahuila") 7
+# State.create(name: "Colima") 8
+# State.create(name: "Durango") 9
+# State.create(name: "Guanajuato") 10
+# State.create(name: "Guerrero") 11
+# State.create(name: "Hidalgo") 12
+# State.create(name: "Jalisco") 13
+# State.create(name: "México") 14
+# State.create(name: "Michoacán") 15
+# State.create(name: "Morelos") 16
+# State.create(name: "Nayarit") 17
+# State.create(name: "Nuevo León") 18
+# State.create(name: "Oaxaca") 19
+# State.create(name: "Puebla") 20
+# State.create(name: "Querétaro") 21
+# State.create(name: "Quintana Roo") 22
+# State.create(name: "San Luis Potosí") 23
+# State.create(name: "Sinaloa") 24
+# State.create(name: "Sonora") 25
+# State.create(name: "Tabasco") 26
+# State.create(name: "Tamaulipas") 27
+# State.create(name: "Tlaxcala") 28
+# State.create(name: "Veracruz") 29
+# State.create(name: "Yucatán") 30 
+# State.create(name: "Zacatecas") 31
 
 
 # City.create(name: "Aguascalientes", state_id: 1)
@@ -71,6 +80,6 @@
 # City.create(name: "Xalapa-Enríquez", state_id: 29)
 # City.create(name: "Mérida", state_id: 30)
 # City.create(name: "Zacatecas", state_id: 31)
+# City.create(name: "Acapulco", state_id: 11)
 
-# Shop.create(number: 137, business_name: "ZACAPUL, S.A. DE C.V.", rfc: "ZAC-840129-RI0", cp: 39300, address:"JUAN RAMÓN ESCUDERO # 15 ZONA CENTRO", telefone: 7444834156, code: "CH-9591", city_id: 32)
 

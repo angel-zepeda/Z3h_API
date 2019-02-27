@@ -24,10 +24,10 @@ class User < ApplicationRecord
   before_validation :downcase_user
 
   #validations
-  validates :username, presence: true, uniqueness: true, length:  {in: 3..12}, format: { with: /\A[a-zA-Z0-9_ ]+\z/, message: 'letters and numbers with space' }
+  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9_ ]+\z/, message: 'letters and numbers with space' }
   validates :email, email: true
   validates :email, presence: true, uniqueness: true
-  validates_length_of   :password, maximum: 72, minimum: 8, allow_nil: true, allow_blank: false
+  # validates_length_of   :password, maximum: 72, minimum: 8, allow_nil: true, allow_blank: false
   validates_confirmation_of :password, if: -> { current_password.present? }
   validates_presence_of :password, if: -> { password_confirmation.present? }
   validates_presence_of :password_confirmation, if: :password_digest_changed?, on: :update
