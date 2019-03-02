@@ -38,18 +38,16 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  private 
-
-  def user_params
-    if current_user && current_user.admin?
-      params.require(:user).permit(:role, :email, :username, :password, :password_confirmation, :avatar, :current_password)
-    else
-      params.require(:user).permit(:email, :username, :password, :password_confirmation, :avatar, :current_password)
+  private
+    def user_params
+      if current_user && current_user.admin?
+        params.require(:user).permit(:role, :email, :username, :password, :password_confirmation, :avatar, :current_password)
+      else
+        params.require(:user).permit(:email, :username, :password, :password_confirmation, :avatar, :current_password)
+      end
     end
-  end
 
-  def set_user
-    @user = User.friendly.find(params[:id])
-  end
-
+    def set_user
+      @user = User.friendly.find(params[:id])
+    end
 end

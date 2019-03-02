@@ -1,4 +1,3 @@
 class Aspect < ApplicationRecord
-  belongs_to :sub_area
-  has_many :reports
+  belongs_to :report
 end

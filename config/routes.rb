@@ -1,4 +1,8 @@
 Rails.application.routes.draw do  
+  get 'reports/index'
+  get 'reports/create'
+  get 'sales/index'
+  get 'sales/create'
   mount Rswag::Ui::Engine => '/api/v1/docs'
   mount Rswag::Api::Engine => '/api-docs'
   concern :api_base do
@@ -23,8 +27,13 @@ Rails.application.routes.draw do
     get 'cities/index'
     get 'shops/index'
     post 'shops/search'
-    get 'areas/index'
+    get 'areas/index'    
     get 'sub_areas/index'
+    get 'sales/score'    
+    post 'reports/search'
+    get 'reports/search_all'
+    resources :reports
+    resources :aspects
     resources :sub_areas  
   end
   namespace :api do
@@ -36,5 +45,6 @@ Rails.application.routes.draw do
   root :to => redirect('/api/v1/docs')
   match '*unmatched_route', :to => 'api/v1/errors#routing', via: [:all]
 end
+
 
 
