@@ -4,10 +4,15 @@ class Api::V1::ReportsController < ApplicationController
     render json: @reports
   end
 
-  def search
-    @reports = Report.where(area_id: params[:area_id], shop_id: params[:shop_id]).all
+  def search_by_area
+    @reports = Report.where(area_id: params[:area_id]).order('created_at DESC')
     render json: @reports
   end
+
+  def search_by_shop
+    @reports = Report.pluck(:created_at).last
+    render json: @reports
+  end 
 
   def search_all
     @reports = Report.all

@@ -1,5 +1,5 @@
 class ReportSerializer < ActiveModel::Serializer
-    attributes :id
+    attributes :id, :created_at
     has_one :user
     has_one :shop
     has_one :area
