@@ -5,12 +5,16 @@ class Api::V1::ReportsController < ApplicationController
   end
 
   def search_by_area
-    @reports = Report.where(area_id: params[:area_id]).order('created_at DESC')
-    render json: @reports
+    @reports = Report.where(area_id: params[:area_id]).last
+    if @reports 
+      render json: [@reports]
+    else 
+      render json: { msg: "No hay reportes" }
+    end 
   end
 
-  def search_by_shop
-    @reports = Report.pluck(:created_at).last
+  def search_by_shop    
+    @reports = Report.where(shop_id: params[:shop_id]).pluck(:created_at).last
     render json: @reports
   end 
 

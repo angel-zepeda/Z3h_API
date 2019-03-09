@@ -83,10 +83,9 @@
 
 # Shop.create(plaza: "TAMAZUNCHALE", shop_number: 51, name: "TAMAZUNZAPA", address: "AV.HIDALGO #504", suburb: "CENTRO", location: "TAMAZUNCHALE", state_id: 23, cp: 79960)
 
-# Area.create(name: "General")
-# Area.create(name: "Infrastructura")
-# Area.create(name: "Personal")
-# Area.create(name: "Mercadeo")
-# Area.create(name: "Publicidad")
-# Area.create(name: "Ventas")
-# Area.create(name: "Sala")
+Area.create(name: "Caballeros")
+Area.create(name: "Damas")
+Area.create(name: "Deportes")
+Area.create(name: "Niños")
+Area.create(name: "Saldos")
+

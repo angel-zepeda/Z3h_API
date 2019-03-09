@@ -201,6 +201,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    strftime (1.0.0)
     thor (0.20.3)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
@@ -239,6 +240,7 @@ DEPENDENCIES
   rswag
   spring
   spring-watcher-listen (~> 2.0.0)
+  strftime
   tzinfo-data
   will_paginate (~> 3.1.0)
 

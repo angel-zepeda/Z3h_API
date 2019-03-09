@@ -31,6 +31,7 @@ gem 'figaro'
 gem 'rswag'
 gem 'will_paginate', '~> 3.1.0'
 gem 'passenger'
+gem 'strftime'
 
 
 # Use ActiveStorage variant

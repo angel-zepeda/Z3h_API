@@ -1,4 +1,5 @@
 Rails.application.routes.draw do  
+  get 'photos/index'
   get 'reports/index'
   get 'reports/create'
   get 'sales/index'
@@ -32,9 +33,10 @@ Rails.application.routes.draw do
     get 'sales/score'    
     post 'reports/search_by_area'
     post 'reports/search_by_shop'
+    resources :photos, only: [:index, :create]
     resources :reports
-    resources :aspects
-    resources :sub_areas  
+    resources :aspects, only: [:index, :create]
+    resources :sub_areas, only: [:index]
   end
   namespace :api do
     namespace :v1 do
