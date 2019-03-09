@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_002704) do
+ActiveRecord::Schema.define(version: 2019_03_09_065833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 2019_03_07_002704) do
     t.bigint "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "score"
+    t.bigint "report_id"
     t.index ["area_id"], name: "index_area_scores_on_area_id"
+    t.index ["report_id"], name: "index_area_scores_on_report_id"
   end
 
   create_table "areas", force: :cascade do |t|
@@ -137,6 +140,7 @@ ActiveRecord::Schema.define(version: 2019_03_07_002704) do
   end
 
   add_foreign_key "area_scores", "areas"
+  add_foreign_key "area_scores", "reports"
   add_foreign_key "aspects", "reports"
   add_foreign_key "cities", "states"
   add_foreign_key "photos", "reports"

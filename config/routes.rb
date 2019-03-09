@@ -31,8 +31,10 @@ Rails.application.routes.draw do
     get 'areas/index'    
     get 'sub_areas/index'
     get 'sales/score'    
-    post 'reports/search_by_area'
+    post 'reports/search_by_area'    
     post 'reports/search_by_shop'
+    post 'area_scores/search'
+    resources :area_scores, only: [:index, :create]
     resources :photos, only: [:index, :create]
     resources :reports
     resources :aspects, only: [:index, :create]
