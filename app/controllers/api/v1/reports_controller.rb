@@ -1,7 +1,7 @@
 class Api::V1::ReportsController < ApplicationController
   def index
-    @reports = Report.all
-    render json: @reports
+    @reports = Report.all    
+    render json: @reports 
   end
 
   def search_by_area
@@ -14,7 +14,7 @@ class Api::V1::ReportsController < ApplicationController
   end
 
   def search_by_shop    
-    @reports = Report.where(shop_id: params[:shop_id]).pluck(:created_at).last
+    @reports = Report.where(shop_id: params[:shop_id]).last
     render json: @reports
   end 
 
