@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_043121) do
+ActiveRecord::Schema.define(version: 2019_03_15_010743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +42,10 @@ ActiveRecord::Schema.define(version: 2019_03_14_043121) do
     t.datetime "updated_at", null: false
     t.float "score"
     t.bigint "report_id"
+    t.bigint "shop_id"
     t.index ["area_id"], name: "index_area_scores_on_area_id"
     t.index ["report_id"], name: "index_area_scores_on_report_id"
+    t.index ["shop_id"], name: "index_area_scores_on_shop_id"
   end
 
   create_table "areas", force: :cascade do |t|
@@ -163,6 +165,7 @@ ActiveRecord::Schema.define(version: 2019_03_14_043121) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "area_scores", "areas"
   add_foreign_key "area_scores", "reports"
+  add_foreign_key "area_scores", "shops"
   add_foreign_key "aspects", "reports"
   add_foreign_key "cities", "states"
   add_foreign_key "photos", "reports"

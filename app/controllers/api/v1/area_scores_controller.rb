@@ -14,7 +14,7 @@ class Api::V1::AreaScoresController < ApplicationController
   end
 
   def search 
-    @score = AreaScore.where(area_id: params[:area_id]).last
+    @score = AreaScore.where(area_id: params[:area_id, shop_id: params[:shop_id]])
     if @score
       render json: @score
     else 
@@ -24,7 +24,7 @@ class Api::V1::AreaScoresController < ApplicationController
 
   private 
     def area_scores_params
-      params.require(:area_score).permit(:score, :area_id, :report_id)
+      params.require(:area_score).permit(:score, :area_id, :report_id, :shop_id)
     end 
 end 
 
