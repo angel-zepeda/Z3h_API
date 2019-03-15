@@ -5,7 +5,7 @@ class Api::V1::ReportsController < ApplicationController
   end
 
   def search_by_area
-    @reports = Report.where(area_id: params[:area_id]).last
+    @reports = Report.where(area_id: params[:area_id], shop_id: params[:shop_id]).last
     if @reports 
       render json: [@reports]
     else 
