@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     post 'reports/search_by_area'    
     post 'reports/search_by_shop'
     post 'area_scores/search'
+    get 'reports/search_today_reports'
     resources :area_scores, only: [:index, :create]
     resources :photos, only: [:index, :create]
     resources :reports

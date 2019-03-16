@@ -13,6 +13,11 @@ class Api::V1::ReportsController < ApplicationController
     end 
   end
 
+  def search_today_reports
+    @reports = Report.where(created_at: Date.today.all_day)
+    render json: @reports
+  end 
+
   def search_by_shop    
     @reports = Report.where(shop_id: params[:shop_id]).last
     render json: @reports
